@@ -57,7 +57,7 @@ class Appointment extends Model
         });
         static::saving(function ($appointment) {
             $status = $appointment->status;
-            if ($status == AppointmentStatusEnum::CONFIRMED) {
+            if ($status == AppointmentStatusEnum::CONFIRMED || $status == AppointmentStatusEnum::CONFIRMED->value) {
                 // Treatments
                 $treatments = $appointment->treatments()->get();
                 $total_treatments = 0;

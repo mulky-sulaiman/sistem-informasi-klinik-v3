@@ -39,14 +39,14 @@ class UsersRelationManager extends RelationManager
                     ->sortable()
                     ->searchable(),
 
-                Tables\Columns\TextColumn::make('role')
+                Tables\Columns\TextColumn::make('roles.name')
                     ->label('Role')
                     ->badge()
-                    ->formatStateUsing(fn (object $state): string => Str::upper($state->value))
-                    ->color(fn (object $state): string => match ($state) {
-                        RoleEnum::OPERATOR => 'info',
-                        RoleEnum::PHARMACIST => 'warning',
-                        RoleEnum::DOCTOR => 'success',
+                    ->formatStateUsing(fn (string $state): string => Str::upper($state))
+                    ->color(fn (string $state): string => match ($state) {
+                        RoleEnum::OPERATOR->value => 'info',
+                        RoleEnum::PHARMACIST->value => 'warning',
+                        RoleEnum::DOCTOR->value => 'success',
                     })
                     ->sortable()
                     ->searchable(),

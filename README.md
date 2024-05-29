@@ -28,7 +28,9 @@ php artisan key:generate
 php artisan migrate:fresh --seed
 ```
 
--   Or populate the new database using this sql dump by running the import command in the MySQL server.
+-   If you encounter error during the seeding process, which most likely came from the unique constraint failed for Clinic data, simply re-run the above command until it is succeed.
+
+-   Another option is to skip the seeding process and manually populate the new database using this sql dump by running the import command in the MySQL server.
 
 ```bash
 https://github.com/mulky-sulaiman/sistem-informasi-klinik-v3/tree/main/database/sistem_informasi_klinik_v3_2024-05-29.sql
@@ -55,16 +57,21 @@ npm i && npm run dev
 | Pharmacist Clinic 2 | pharmacist.2@example.com | passsword |
 | Pharmacist Clinic 3 | pharmacist.3@example.com | passsword |
 | Pharmacist Clinic 4 | pharmacist.4@example.com | passsword |
-| Pharmacist Clinic 5 | pharmacist.1@example.com | passsword |
+| Pharmacist Clinic 5 | pharmacist.5@example.com | passsword |
 | Doctor Clinic 1     | doctor.1@example.com     | passsword |
 | Doctor Clinic 2     | doctor.2@example.com     | passsword |
 | Doctor Clinic 3     | doctor.3@example.com     | passsword |
 | Doctor Clinic 4     | doctor.4@example.com     | passsword |
-| Doctor Clinic 5     | doctor.2@example.com     | passsword |
+| Doctor Clinic 5     | doctor.5@example.com     | passsword |
+
+-   For the above sample user with the role of Operator, Pharmacist, and Doctor, it has been bound to each Clinic respectively (marked with Clinic # for easy read)
+    Means each clinic should have at least 1 member of each role of Operator, Pharmacist, and Doctor (5 Clinics with different location region has been pre-populated as sample)
 
 -   ERD (Table Screenshot) : https://github.com/mulky-sulaiman/sistem-informasi-klinik-v3/tree/main/database/ERD.png
 
 -   Sequence Diagram : https://github.com/mulky-sulaiman/sistem-informasi-klinik-v3/tree/main/public/diagrams/seqdiag-appointment-transaction.svg
+
+-   Screenshots : https://github.com/mulky-sulaiman/sistem-informasi-klinik-v3/tree/main/public/screenshots
 
 ## License
 

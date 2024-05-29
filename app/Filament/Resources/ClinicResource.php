@@ -145,7 +145,7 @@ class ClinicResource extends Resource
                     ->limit(80)
                     ->sortable()
                     ->searchable(),
-                Tables\Columns\TextColumn::make('users_count')
+                Tables\Columns\TextColumn::make('user_count')
                     ->badge()
                     ->label(__('Members Count'))
                     ->counts('user')
