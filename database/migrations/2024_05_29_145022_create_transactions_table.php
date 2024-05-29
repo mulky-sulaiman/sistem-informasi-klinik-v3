@@ -16,7 +16,7 @@ return new class extends Migration
         // Transactions
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('appointment_id')->constrained();
+            $table->foreignId('appointment_id')->nullable()->constrained();
             $table->string('patient_name');
             $table->string('patient_phone')->nullable();
             $table->tinyInteger('patient_age')->default(0);
@@ -35,7 +35,7 @@ return new class extends Migration
         // Bills
         Schema::create('bills', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('transaction_id')->constrained();
+            $table->foreignId('transaction_id')->nullable()->constrained();
             $table->enum('type', BillTypeEnum::values())->default(BillTypeEnum::TREATMENT->value);
             $table->string('item_name');
             $table->text('item_description');
