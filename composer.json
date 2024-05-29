@@ -15,9 +15,7 @@
         "laravel/framework": "^11.0",
         "laravel/tinker": "^2.9",
         "livewire/volt": "^1.6",
-        "ext-pdo_sqlite": "*"
-    },
-    "require-dev": {
+        "ext-pdo_sqlite": "*",
         "azishapidin/indoregion": "^3.0",
         "barryvdh/laravel-dompdf": "^2.2",
         "binary-cats/laravel-sku": "^0.7.0",
@@ -32,6 +30,7 @@
         "ryangjchandler/blade-tabler-icons": "^2.3",
         "spatie/laravel-ignition": "^2.4"
     },
+    "require-dev": {},
     "autoload": {
         "psr-4": {
             "App\\": "app/",
