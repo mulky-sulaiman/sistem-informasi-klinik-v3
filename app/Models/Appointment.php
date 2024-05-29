@@ -16,6 +16,7 @@ class Appointment extends Model
     use HasFactory;
 
     protected $fillable = [
+        'id',
         'patient_id',
         'clinic_user_id',
         'schedule_date',
@@ -28,6 +29,7 @@ class Appointment extends Model
     ];
 
     protected $casts = [
+        'id' => 'integer',
         'schedule_date' => 'datetime',
         'height' => 'integer',
         'weight' => 'integer',
@@ -55,9 +57,10 @@ class Appointment extends Model
                 'amount' => $fee,
             ]);
         });
-        static::saving(function ($appointment) {
+        static::updating(function ($appointment) {
             $status = $appointment->status;
-            if ($status == AppointmentStatusEnum::CONFIRMED || $status == AppointmentStatusEnum::CONFIRMED->value) {
+            // dd($status->value);
+            if ($status->value == AppointmentStatusEnum::CONFIRMED->value) {
                 // Treatments
                 $treatments = $appointment->treatments()->get();
                 $total_treatments = 0;
